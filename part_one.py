@@ -38,8 +38,8 @@ def driver():
 
 # Returns 0 for DNA (Contains "T" bases)
 # Returns 1 for RNA (Contains "U" bases)
-# Returns -1 if the strand cannot be categorized: 
-#   - Contains both "T" and "U" in the same strand 
+# Returns -1 if the strand cannot be categorized:
+#   - Contains both "T" and "U" in the same strand
 #   - There are no "T" or "U" bases in the strand
 def categorize_strand(strand):
     is_t_present = False
@@ -70,7 +70,7 @@ def encode_strand(strand):
         if strand[index - 1] == strand[index]:
             count += 1
         else:
-            new_entry = strand[index - 1] + count
+            new_entry = strand[index - 1] + str(count)
             encoding.append(new_entry)
             count = 1
 
