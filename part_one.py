@@ -76,6 +76,9 @@ def encode_strand(strand):
             encoding.append(new_entry)
             count = 1
 
+    new_entry = strand[index - 1] + str(count)
+    encoding.append(new_entry)
+
     return "".join(encoding)
 
 def decode_strand(encoding):
