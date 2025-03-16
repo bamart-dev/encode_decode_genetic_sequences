@@ -16,7 +16,9 @@ def driver():
     categorized_sequences["rna"] = [] # rna strands
 
     for sequence in all_sequences:
-        category = categorize_strand(sequence)
+        category = ("dna" if categorize_strand(sequence) == 0
+                    else "rna" if categorize_strand(sequence) == 1
+                    else "undetermined")
         categorized_sequences[category].append(sequence)
 
     print("-------------------------")
@@ -33,7 +35,7 @@ def driver():
     print("Listing undetermined sequences for review...")
     print("-------------------------")
 
-    for sequence in categorized_sequences[-1]:
+    for sequence in categorized_sequences["undetermined"]:
         print(sequence)
 
 # Returns 0 for DNA (Contains "T" bases)
